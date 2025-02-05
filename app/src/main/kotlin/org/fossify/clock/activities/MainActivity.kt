@@ -41,13 +41,7 @@ class MainActivity : SimpleActivity() {
         setupTabs()
         updateWidgets()
 
-        getEnabledAlarms { enabledAlarms ->
-            if (enabledAlarms.isNullOrEmpty()) {
-                ensureBackgroundThread {
-                    rescheduleEnabledAlarms()
-                }
-            }
-        }
+        rescheduleEnabledAlarms()
     }
 
     override fun onResume() {
